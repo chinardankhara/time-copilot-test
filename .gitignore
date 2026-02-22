@@ -8,10 +8,9 @@ build/
 *.egg-info/
 
 # Local artifacts
-artifacts/*.json
-artifacts/*.csv
-artifacts/*.parquet
+artifacts/**
+!artifacts/.gitkeep
+datasets/
 
 # Worktrees
 .worktrees/
-
