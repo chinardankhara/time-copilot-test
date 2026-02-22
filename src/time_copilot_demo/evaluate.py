@@ -21,3 +21,12 @@ def classification_metrics(
     }
     return metrics
 
+
+def forecast_metrics(y_true: Iterable[float], y_pred: Iterable[float]) -> dict[str, float]:
+    y_true_arr = np.asarray(list(y_true), dtype=float)
+    y_pred_arr = np.asarray(list(y_pred), dtype=float)
+    mae = np.mean(np.abs(y_true_arr - y_pred_arr))
+    rmse = np.sqrt(np.mean((y_true_arr - y_pred_arr) ** 2))
+    denom = np.maximum(np.abs(y_true_arr) + np.abs(y_pred_arr), 1e-8)
+    smape = np.mean(2.0 * np.abs(y_true_arr - y_pred_arr) / denom) * 100.0
+    return {"mae": float(mae), "rmse": float(rmse), "smape": float(smape)}
