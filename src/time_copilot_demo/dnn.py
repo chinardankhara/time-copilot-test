@@ -31,11 +31,11 @@ def fit_predict_dnn_regression(
 ) -> np.ndarray:
     # Lightweight deterministic fallback that works on any machine.
     model = MLPRegressor(
-        hidden_layer_sizes=(64, 32),
+        hidden_layer_sizes=(32, 16),
         activation="relu",
         solver="adam",
         learning_rate_init=1e-3,
-        max_iter=500,
+        max_iter=60,
         random_state=7,
     )
     model.fit(X_train, y_train)
@@ -46,13 +46,12 @@ def fit_predict_dnn_classification(
     X_train: pd.DataFrame, y_train: pd.Series, X_test: pd.DataFrame
 ) -> np.ndarray:
     model = MLPClassifier(
-        hidden_layer_sizes=(64, 32),
+        hidden_layer_sizes=(32, 16),
         activation="relu",
         solver="adam",
         learning_rate_init=1e-3,
-        max_iter=500,
+        max_iter=60,
         random_state=7,
     )
     model.fit(X_train, y_train)
     return model.predict_proba(X_test)[:, 1]
-

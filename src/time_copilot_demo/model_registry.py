@@ -3,7 +3,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import HistGradientBoostingClassifier, HistGradientBoostingRegressor
-from sklearn.linear_model import ElasticNetCV, LogisticRegression
+from sklearn.linear_model import ElasticNet, LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
@@ -33,10 +33,10 @@ def predict_forecast(
                 ("scale", StandardScaler()),
                 (
                     "reg",
-                    ElasticNetCV(
-                        l1_ratio=[0.1, 0.5, 0.9, 1.0],
-                        alphas=np.logspace(-4, 1, 20),
-                        max_iter=5000,
+                    ElasticNet(
+                        alpha=0.001,
+                        l1_ratio=0.9,
+                        max_iter=3000,
                         random_state=7,
                     ),
                 ),
@@ -46,7 +46,7 @@ def predict_forecast(
         return model.predict(X_test)
 
     if model_name == "gbdt_reg":
-        model = HistGradientBoostingRegressor(max_depth=6, max_iter=300, learning_rate=0.05, random_state=7)
+        model = HistGradientBoostingRegressor(max_depth=6, max_iter=80, learning_rate=0.05, random_state=7)
         model.fit(X_train, y_train)
         return model.predict(X_test)
 
@@ -73,7 +73,7 @@ def predict_rally_probability(
         return model.predict_proba(X_test)[:, 1]
 
     if model_name == "gbdt_cls":
-        model = HistGradientBoostingClassifier(max_depth=6, max_iter=300, learning_rate=0.05, random_state=7)
+        model = HistGradientBoostingClassifier(max_depth=6, max_iter=80, learning_rate=0.05, random_state=7)
         model.fit(X_train, y_train)
         return model.predict_proba(X_test)[:, 1]
 
