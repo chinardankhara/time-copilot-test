@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Local artifacts
+artifacts/*.json
+artifacts/*.csv
+artifacts/*.parquet
+
+# Worktrees
+.worktrees/
+
