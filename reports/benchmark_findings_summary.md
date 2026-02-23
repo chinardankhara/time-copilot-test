@@ -64,13 +64,13 @@ Interpretation: the result is not only “better than naive”; it remains compe
 - Model winners differ across markets, which is expected and reinforces the need for automatic selection.
 
 ## 6) Artifacts to review quickly
-- Benchmark report: `/Users/chinardankhara/Documents/GitHub/time-copilot-test/reports/dual_market_benchmark.md`
+- Benchmark report: `reports/dual_market_benchmark.md`
 - Executive + analytical chart pack:
-  - `/Users/chinardankhara/Documents/GitHub/time-copilot-test/reports/charts/01_champion_scorecard.png`
-  - `/Users/chinardankhara/Documents/GitHub/time-copilot-test/reports/charts/02_forecast_smape.png`
-  - `/Users/chinardankhara/Documents/GitHub/time-copilot-test/reports/charts/03_rally_prauc.png`
-  - `/Users/chinardankhara/Documents/GitHub/time-copilot-test/reports/charts/04_forecast_efficiency.png`
-  - `/Users/chinardankhara/Documents/GitHub/time-copilot-test/reports/charts/05_rally_calibration.png`
+  - `reports/charts/01_champion_scorecard.png`
+  - `reports/charts/02_forecast_smape.png`
+  - `reports/charts/03_rally_prauc.png`
+  - `reports/charts/04_forecast_efficiency.png`
+  - `reports/charts/05_rally_calibration.png`
 
 ## 7) Recommended next step
 Run the same framework on internal targets and compare against current desk heuristics as the baseline.

@@ -47,4 +47,4 @@ PYTHONPATH=src python scripts/generate_charts.py --artifacts-dir artifacts/dual_
 - Forecast champion: lowest `sMAPE` (tie-break `MAE`).
 - Rally champion: highest `PR-AUC` (tie-break lowest `Brier`).
 
-See `/Users/chinardankhara/Documents/GitHub/time-copilot-test/.worktrees/track-a/docs/plans/2026-02-22-pjm-np-retrain-autopick-design.md` and `/Users/chinardankhara/Documents/GitHub/time-copilot-test/.worktrees/track-a/docs/plans/2026-02-22-pjm-np-retrain-autopick-implementation.md`.
+See `docs/plans/2026-02-22-pjm-np-retrain-autopick-design.md` and `docs/plans/2026-02-22-pjm-np-retrain-autopick-implementation.md`.
