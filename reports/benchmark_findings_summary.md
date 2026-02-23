@@ -37,14 +37,26 @@ The system automatically selects champions by task and market:
 
 Interpretation: the approach is not only beating naive baselines; it is finding materially better models for both predictive tasks.
 
-## 4) Why this matters for business users
-For a reader who is not model-focused, the key point is:
+## 4) Strong baseline comparisons
+This run includes strong non-naive baselines and compares winners against them directly.
 
-- The workflow can **benchmark multiple model families**,
-- **auto-select the best model per context**, and
-- produce repeatable evidence that is easy to review.
+### Forecast task (vs `lear` and `dnn_reg`)
+- **PJM winner (`gbdt_reg`)**:
+  - sMAPE is **1.19 points better** than `dnn_reg` (`12.01` vs `13.20`)
+  - sMAPE is **4.11 points better** than `lear` (`12.01` vs `16.13`)
+- **NP winner (`dnn_reg`)**:
+  - tied as best against the strong set (equal to `dnn_reg` by definition of winner)
+  - still **0.32 sMAPE points better** than `lear` (`5.54` vs `5.86`)
 
-This maps well to freight/refinery use cases where the same platform can be reused with different targets and features.
+### Rally task (vs `logreg` and `dnn_cls`)
+- **PJM winner (`gbdt_cls`)**:
+  - PR-AUC is **+0.055 higher** than `logreg` (`0.870` vs `0.815`)
+  - PR-AUC is **+0.017 higher** than `dnn_cls` (`0.870` vs `0.853`)
+- **NP winner (`dnn_cls`)**:
+  - PR-AUC is **+0.002 higher** than `logreg` (`0.789` vs `0.787`)
+  - winner is `dnn_cls` itself among strong baselines
+
+Interpretation: the result is not only “better than naive”; it remains competitive or superior against strong baseline families.
 
 ## 5) Important caveats
 - This is validated on public electricity market data, not Vitol internal data.
@@ -61,4 +73,4 @@ This maps well to freight/refinery use cases where the same platform can be reus
   - `/Users/chinardankhara/Documents/GitHub/time-copilot-test/reports/charts/05_rally_calibration.png`
 
 ## 7) Recommended next step
-Run the same framework on internal freight/refinery targets using desk-specific features and compare against current desk heuristics as the baseline.
+Run the same framework on internal targets and compare against current desk heuristics as the baseline.
