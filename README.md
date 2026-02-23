@@ -20,6 +20,7 @@ pip install -e '.[dev]'
 pytest tests
 PYTHONPATH=src python scripts/run_benchmark.py --markets PJM,NP --source public --artifacts-dir artifacts/dual_market
 PYTHONPATH=src python scripts/generate_report.py --artifacts-dir artifacts/dual_market --output reports/dual_market_benchmark.md
+PYTHONPATH=src python scripts/generate_charts.py --artifacts-dir artifacts/dual_market --output-dir reports/charts
 ```
 
 ## Outputs
@@ -31,6 +32,11 @@ PYTHONPATH=src python scripts/generate_report.py --artifacts-dir artifacts/dual_
 - `artifacts/dual_market/NP/champions.json`
 - `artifacts/dual_market/champion_summary.csv`
 - `reports/dual_market_benchmark.md`
+- `reports/charts/01_champion_scorecard.png`
+- `reports/charts/02_forecast_smape.png`
+- `reports/charts/03_rally_prauc.png`
+- `reports/charts/04_forecast_efficiency.png`
+- `reports/charts/05_rally_calibration.png`
 
 ## Data Sources
 - `--source public` (default): loads open EPF market data from Zenodo and caches in `datasets/`.
